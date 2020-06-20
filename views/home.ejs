@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head>
+    <title>Git Commit Show | Leading online tech conference | Since 2019</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <link rel="shortcut icon" href="assets/img/invide.png"/>
+    <link rel="icon" href="assets/img/invide.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/index.css?version=51"/>
+  
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Jquery script,socket script,raise hand script -->
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"> </script>
+  <script defer src="/script.js"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+  
+
+</head> 
+ 
+<body>
+    <!-- NAVBAR SECTION-->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light" role="navigation">
+        <a class="navbar-brand" href="http://gitcommit.show/" target="_blank"><img id='logo'
+            src="assets/img/invide.png" />
+        </a>
+        <button class="navbar-toggler" id='toggle-menu-btn' type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                    viewBox="0 0 30 30">
+                    <path stroke="#E71D2B" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"
+                        d="M4 7h22M4 15h22M4 23h22"></path>
+                </svg>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav navbar-right ml-auto" id="nav-ul">
+                <li class="nav-item active"><a class="nav-link navstyle" href="#home">Home
+                        <span class="sr-only">(current)</span></a></li>
+                <li class="nav-item"><a class="nav-link navstyle" href="#speakers">Speakers</a></li>
+                <li class="nav-item"><a class="nav-link navstyle" href="#highlights">Highlights/2019</a></li>
+                <li class="nav-item"><a class="nav-link navstyle" href="http://push.gitcommit.show">Join Us</a></li>
+                <li class="nav-item"><a class="nav-link navstyle" href="#footer">Volunteers</a></li>
+                <li class="nav-item"><a class="nav-link navstyle" href="#footer">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- NAVBAR SECTION END-->
+    <!-- LIVE MASTERCLASS SECTION -->
+    <div id="live-masterclass">
+    	<div id="l-m-header">
+    		<img src="assets/img/ellipse.png">
+    		<p>Live Masterclass</p>
+    	</div>
+		<div id="l-m-video">
+			<iframe class="carousel-iframe-size" src="https://www.youtube.com/embed/	NiBwIddeCgA" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+            <param name="allowFullScreen" value="true" />
+            <param name="allowscriptaccess" value="false" />
+            <div id="iframe-text">
+            	<p>
+            		<span class="iframe-text-ques">Your Question </span>
+            		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br>
+            		<span class="iframe-text-status">approved</span>
+            	</p>
+            	<p>
+            		<span class="iframe-text-ques">Your Question </span>
+            		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br>
+            		<span class="iframe-text-status">submitted</span>
+            	</p>
+            	<form action="index_submit" id="iframe-text-form" name = "iframe-text-form" method="get" accept-charset="utf-8">
+            		<textarea id="iframe-text-form" name="iframe-text-form" rows="3" cols="26" maxlength="80" placeholder="Type your question" draggable="false"></textarea>
+  					<input type="submit" name="iframe-text-form" value="Submit">
+            	</form>
+            </div>
+		</div>
+		<div id="l-m-text">
+			<h1>Journey of Popular Open-Source Project cURL</h1>
+			<hr>
+            <br>
+            
+            
+
+			<div id="l-m-text-div">
+				<div id="l-m-text-div1">
+					<span>32%</span>
+					<p>of total audience</p>
+                    <form id="handraised">
+                    <button class="l-m-text-button" type="submit" id="submithand">
+						<img src="assets/img/raise-hand.png">
+						<p>Raise Hands</p>	
+                    </button>
+                    </form>
+					<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do .</p>
+				</div>
+				<div id="l-m-text-div2">
+					<span>873</span>
+					<button class="l-m-text-button"> 
+						<img src="assets/img/clap.png">
+						<p>Claps</p>
+					</button>
+					<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do .</p>
+				</div>
+				<div id="l-m-text-div3">
+					<button class="l-m-text-button"> 
+						<img src="assets/img/handshake.png">
+						<p>Meet Attendees F2F</p>
+					</button>
+					<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do .</p>
+				</div>	
+			</div>			
+		</div>    
+    </div>
+	<!-- LIVE MASTERCLASS SECTION ENDS -->
+    <!-- Upcoming Session Section -->
+    <div id="u-session">
+    	<div id="schedule-date">
+            <p>UPCOMING SESSIONS</p>
+        </div>
+        <div id="jun27">
+            <div class="jun27-items">
+                <div class="jun27-child">
+                    <div>
+                        <p class="speakers-time">11:00</p>
+
+                        <hr class="jun27-hr">
+                        <a href="https://www.linkedin.com/in/scotthanselman/" title="Add me on Linkedin">
+                            <img class="speakers-icon" src="assets/img/speakers/scott-hanselman.png">
+                        </a>
+                    </div>
+                    <div>
+                        <p class="speakers-data-1">Building your brand online as a developer</p>
+                        <p class="speakers-data-2"><b>/masterclass</b></p>
+                        <p class="speakers-data-3">SCOTT HANSELMANN</p>
+                        <p class="speakers-data-4"> Program Manager at Microsoft, Working remotely for 10+ yrs. <br>
+                            #PersonalBranding #Networking</p>
+                        <div class='button-div'>
+                			<div class="dropdown btn-group">
+                    			<a class="btn dropdown-toggle pl-5 pr-5" data-toggle="dropdown" href="#">
+                    				<img src="assets/img/calendar.png">
+                        		Add to Calender
+                    			</a>
+                    			<ul class="dropdown-menu text-center p-3">
+                        			<li>
+                            			<a target="_blank"
+                                		href="https://www.google.com/calendar/render?action=TEMPLATE&dates=20200627T043000Z%2F20200628T123000Z&text=Git%20Commit%20Show&location=Virtual%20Online&details=Join%20at%3A%20live.gitcommit.show%20.%0AUpdated%20Schedule%3A%20gitcommit.show">Google Calender
+                            			</a>
+                        			</li>   
+                        			<li>
+                            			<a target="_blank"
+                               				href="https://outlook.live.com/owa/?path=/calendar/action/compose
+				        					&rru=addevent&startdt=2020-06-27T10%3A00%3A00&enddt=2020-06-28T08%3A30%3A00-05%3A00&subject=Git%20Commit%20Show&body=Join%20at:%20live.gitcommit.show%20.Updated%20Schedule:%20gitcommit.show&location=Virtual%20Online">Outlook Calender
+                            			</a>
+                        			</li>
+                        			<li>
+                            			<a target="_blank" href="https://calendar.yahoo.com/?v=60&view=d&type=20
+				        					&title=Git+Commit+Show
+				        					&st=20200627T090000
+				        					&et=20200628T190000
+				        					&desc=Join%20at:%20live.gitcommit.show%20.Updated%20Schedule:%20gitcommit.show%20.
+				        					&in_loc=Virtual+Online
+                            				&uid=">Yahoo Calender
+                            			</a>
+                        			</li>
+                        			<li>
+                            			<a href="assets/myEvent.ics" target="_blank">iCal</a>
+                        			</li>
+                    			</ul>
+                			</div>
+            			</div>
+                	</div>
+                </div>
+                <div class="jun27-child">
+                    <div>
+                        <p class="speakers-time">12:00</p>
+                        <hr class="jun27-hr">
+                        <a href="https://www.linkedin.com/in/scotthanselman/" title="Add me on Linkedin">
+                            <img class="speakers-icon" src="assets/img/speakers/scott-hanselman.png">
+                        </a>
+                    </div>
+                    <div>
+                        <p class="speakers-data-1">Building your brand online as a developer</p>
+                        <p class="speakers-data-2"><b>/masterclass</b></p>
+                        <p class="speakers-data-3">SCOTT HANSELMANN</p>
+                        <p class="speakers-data-4"> Program Manager at Microsoft, Working remotely for 10+ yrs. <br>
+                            #PersonalBranding #Networking</p>
+                        <div class='button-div'>
+                			<div class="dropdown btn-group">
+                    			<a class="btn dropdown-toggle pl-5 pr-5" data-toggle="dropdown" href="#">
+                    				<img src="assets/img/calendar.png">
+                        		Add to Calender
+                    			</a>
+                    			<ul class="dropdown-menu text-center p-3">
+                        			<li>
+                            			<a target="_blank"
+                                		href="https://www.google.com/calendar/render?action=TEMPLATE&dates=20200627T043000Z%2F20200628T123000Z&text=Git%20Commit%20Show&location=Virtual%20Online&details=Join%20at%3A%20live.gitcommit.show%20.%0AUpdated%20Schedule%3A%20gitcommit.show">Google Calender
+                            			</a>
+                        			</li>   
+                        			<li>
+                            			<a target="_blank"
+                               				href="https://outlook.live.com/owa/?path=/calendar/action/compose
+				        					&rru=addevent&startdt=2020-06-27T10%3A00%3A00&enddt=2020-06-28T08%3A30%3A00-05%3A00&subject=Git%20Commit%20Show&body=Join%20at:%20live.gitcommit.show%20.Updated%20Schedule:%20gitcommit.show&location=Virtual%20Online">Outlook Calender
+                            			</a>
+                        			</li>
+                        			<li>
+                            			<a target="_blank" href="https://calendar.yahoo.com/?v=60&view=d&type=20
+				        					&title=Git+Commit+Show
+				        					&st=20200627T090000
+				        					&et=20200628T190000
+				        					&desc=Join%20at:%20live.gitcommit.show%20.Updated%20Schedule:%20gitcommit.show%20.
+				        					&in_loc=Virtual+Online
+                            				&uid=">Yahoo Calender
+                            			</a>
+                        			</li>
+                        			<li>
+                            			<a href="assets/myEvent.ics" target="_blank">iCal</a>
+                        			</li>
+                    			</ul>
+                			</div>
+            			</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Upcoming Session Section END-->
+    <!-- FEEDBACK SECTION -->
+    <div id="feedback">
+        <form id="email-form" action="index_submit" method="get" accept-charset="utf-8">
+        	<input type="text" id="fname" name="fname" placeholder="Your Email">
+        	<input type="submit" name="" value="EMAIL ME THE RECORDINGS" >
+        </form>	
+    </div>
+    <div id="register-button-3" class="text-center">
+        <button onclick="location.href='http://push.gitcommit.show'" type="button">
+            SUBMIT FEEDBACK
+        </button>
+    </div>
+    <!-- FEEDBACK SECTION END-->
+    <!------FOOTER SECTION------>
+    <div id="footer" class="row p-3 mx-auto">
+        <div class='footer-child col-lg-3 p-2 mobile-hide'>
+            <h3 class="footer-col-title">Git Commit Show 2019</h3>
+            <span class="text-center">
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('https://www.youtube.com/watch?v=BT7eMIZSxy4&list=PLTipZqZxsfqN8Exxn3Eh5a_LLy3Vj3hFK&index=2')">AI
+                        for everyday things /masterclass</span></p>
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('https://www.youtube.com/watch?v=BT7eMIZSxy4&list=PLTipZqZxsfqN8Exxn3Eh5a_LLy3Vj3hFK&index=2')">Get
+                        started with machine learning /masterclass</span></p>
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('https://www.youtube.com/watch?v=BT7eMIZSxy4&list=PLTipZqZxsfqN8Exxn3Eh5a_LLy3Vj3hFK&index=2')">How
+                        I turned phone into 3d mouse /showcase</span></p>
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('https://www.youtube.com/watch?v=oYP7W1gXzsI&list=PLTipZqZxsfqN8Exxn3Eh5a_LLy3Vj3hFK')">All
+                        session recordings 2019 (2/11 uploaded)</span></p>
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('https://blog.invidelabs.com/git-commit-show-highlights/')">Highlights
+                        2019</span></p>
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('https://blog.invidelabs.com/git-commit-show/')">Speakers
+                        2019</span></p>
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('https://blog.invidelabs.com/git-commit-show/')">Partners
+                        2019</span></p>
+            </span>
+        </div>
+        <div class='footer-child col-lg-3 p-2'>
+            <h3 class="footer-col-title">Appear On The Show</h3>
+            <span class="text-center">
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('http://push.gitcommit.show')">Showcase your breakthrough
+                        project</span></p>
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('http://push.gitcommit.show')">Volunteer</span></p>
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('http://push.gitcommit.show')">Partner</span></p>
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('http://push.gitcommit.show')">Offer giveaways for
+                        attendees</span></p>
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('http://push.gitcommit.show')">Offer entertainment during
+                        breaks</span></p>
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('http://push.gitcommit.show')">Speak</span></p>
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('http://push.gitcommit.show')">Attend the show</span></p>
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('mailto:team@gitocommit.show')">Enquiry :
+                        team@gitcommit.show</span></p>
+            </span>
+        </div>
+        <div class='footer-child col-lg-3 p-2'>
+            <h3 class="footer-col-title">Links</h3>
+            <span class="text-center">
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('http://bit.ly/teamgcs')">Team - 100% Remote</span></p>
+                <p class="footer-item"><span class="footer-item-link"
+                        onclick="javascript:window.open('https://github.com/Git-Commit-Show/gcs2020')">Open-Source code
+                        on Github</span> 
+                </p>
+            </span>
+            <p class="footer-item"><span class="footer-item-link"
+                    onclick="javascript:window.open('http://bit.ly/gcsmeeting')">Public team meetings notes</span>
+            </p>
+            <p class="footer-item"><span class="footer-item-link"
+                    onclick="javascript:window.open('https://bit.ly/gcspressrelease')">Press release</span></p>
+            <p class="footer-item"><span class="footer-item-link"
+                    onclick="javascript:window.open('https://api.whatsapp.com/send?phone=918826701901&text=I%20have%20a%20query%20about%20Git%20Commit%20Show')">Contact
+                    Us : +91-8826701901</span></p>
+        </div>
+        <div class='footer-child col-lg-3 p-2 text-center'>
+            <h3 class="footer-col-title">About Git Commit Show</h3>
+            <span id="footer-text-end" class="text-left">
+                <p class="footer-item">
+                    Git Commit Show is the leading online tech conference where <b>senior engineers</b>, researchers,
+                    scientists and professors meet while <b>being at home</b>.
+                    <br />A 2-day long, online meetup where carefully curated senior developers and researchers share
+                    their knowledge and breakthrough projects.
+                    <br />Unlike other online conferences, it is fully <b>interactive</b> with opportunities to connect
+                    with speakers and fellow attendees <b>face to face</b>.
+                    <br />Git Commit Show <b>started in 2019</b> to provide a better alternative to physical conferences
+                    by being open, free and inclusive of people who come from remote locations and modest backgrounds.
+                </p>
+            </span>
+            <div id='footer-social-media' class="p-2 mx-auto">
+                <a href="https://github.com/git-commit-show" class="fa fa-github fa-footer pr-3"></a>
+                <a href="https://www.reddit.com/r/GitCommitShow/" class="fa fa-reddit fa-footer pr-3"></a>
+                <a href="https://twitter.com/gitcommitshow" class="fa fa-twitter fa-footer pr-3"></a>
+                <a href="https://www.linkedin.com/company/invide-labs/" class="fa fa-linkedin fa-footer pr-3"></a>
+            </div>
+        </div>
+    </div>    
+    <!---FOOTER SECTION END--->
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="assets/slick/slick.js"></script>
+    <script type="text/javascript" src="assets/js/slick-effect.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <!--ZC Popup Code Starts-->
+    <script type="text/javascript" id="ZC_Forms_Popup" src="https://campaigns.zoho.com/js/optin.min.js"
+        onload="loadZCPopup('2eda160ea23c299e223fa0d67ab25aec464ea8c0b48e713d7','ZCFORMVIEW','2a45059ac55260ce7d71b62c3142be692')"
+        onreadystatechange="loadZCPopup('2eda160ea23c299e223fa0d67ab25aec464ea8c0b48e713d7','ZCFORMVIEW','2a45059ac55260ce7d71b62c3142be692')"></script>
+    <!--ZC Popup Code Ends-->
+</body>
+
+</html>
+

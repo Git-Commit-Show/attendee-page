@@ -1,0 +1,30 @@
+{
+  "name": "attendee-page-ui",
+  "version": "1.0.0",
+  "description": "[![HitCount](http://hits.dwyl.com/Git-Commit-Show/attendee-page-ui.svg)](http://hits.dwyl.com/Git-Commit-Show/attendee-page-ui)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Git-Commit-Show/attendee-page-ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "npm": "^6.14.5",
+    "redis": "^3.0.2",
+    "socket.io": "^2.3.0",
+    "update": "^0.7.4"
+  },
+  "bugs": {
+    "url": "https://github.com/Git-Commit-Show/attendee-page-ui/issues"
+  },
+  "homepage": "https://github.com/Git-Commit-Show/attendee-page-ui#readme"
+}
