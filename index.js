@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 const redis = require("redis");
+var socket=require("socket.io");  
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -14,7 +15,13 @@ client.on("connect", function() {
 client.flushall();
 
 app.use(express.static("public"));
-const io = require("socket.io")(8080);
+
+let server=app.listen(3000,function(){
+  console.log("Server started at port 3000");
+});
+
+const io = socket(server);
+
 let users = [];
 
 client.set("HandsRaised",0);
@@ -26,13 +33,20 @@ io.on("connection", socket => {
 
   socket.on("raise-hand", function() {
     client.incr("HandsRaised");
+    
     status();
-  });
-
-  socket.on("hand-raised", function() {
+    setTimeout(function(){
     client.decr("HandsRaised");
     status();
+    },5000);
+    
+
   });
+
+  // socket.on("hand-raised", function() {
+  //   client.decr("HandsRaised");
+  //   status();
+  // });
 
 
 });
@@ -46,15 +60,12 @@ app.use(session({
     saveUninitialized: true
 }));
 
-app.listen(3000,function(){
-  console.log("Server started at port 3000");
-});
+
 
 app.get("/", function(req, res) {
   const id = req.sessionID;
 
   res.render("home.ejs");
-
   if (users.indexOf(id) == -1) {
     users.unshift(id);
     client.lpush(["UsersId",id]);
@@ -72,7 +83,13 @@ app.get("/chatroom",function(req,res){
 function status() {
   client.get("HandsRaised",function(err,hands){
     client.lrange("UsersId",0,-1,function(err,usersList){
+     
+      const per=(hands/usersList.length)*100;
+      // I'VE TO USE THIS VALUE SUCH THAT INNERTEXT OF CURRENT % CHANGES,SO THAT CHANGED 
+      // PERCENTAGE GET DISPLAYED   
       console.log("Active Users = "+ usersList.length+ "  Hands Raised = "+ (hands/usersList.length)*100+"%");
+    
+    
     });
   });
 };
