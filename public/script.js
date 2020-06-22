@@ -1,22 +1,23 @@
-const socket = io("http://localhost:8080");
+const socket = io("http://localhost:3000");
 
 
-var hand = document.querySelector("#handraised");
-var submit = document.querySelector("#submithand");
-console.log(submit);
+console.log("welcome script is working")
+var hand = document.querySelector("#hand");
+var submit = document.querySelector("#submit");
+var number=document.querySelector("#number"); 
+console.log(submit.innerText);
 hand.addEventListener("submit", function(e) {
+  console.log(submit.innerText);
   e.preventDefault();
 });
 submit.addEventListener("click", function() {
-  if (submit.innerText == "Raise Hands") {
-    submit.style.background = "orange";
-    submit.innerText = "Hand Raised";
+  if (number.innerText == "Raise Hands") {
+    submit.style.background = "red";
+    setTimeout(function(){submit.style.background = "#EFEFEF";
+  },5000)
     socket.emit("raise-hand");
-  } else {
-    submit.style.background = "#1762A7";
-    submit.innerText = "Raise Hands";
-    socket.emit("hand-raised");
   }
+    
 });
 
 
