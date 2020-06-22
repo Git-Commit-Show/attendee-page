@@ -25,6 +25,7 @@ const io = socket(server);
 let users = [];
 
 client.set("HandsRaised",0);
+client.set("ClapsRaised",0);
 
 io.on("connection", socket => {
 
@@ -32,6 +33,7 @@ io.on("connection", socket => {
   socket.emit("pageOpened",users[0]);
 
   socket.on("raise-hand", function() {
+    
     client.incr("HandsRaised");
     
     status();
@@ -43,10 +45,16 @@ io.on("connection", socket => {
 
   });
 
-  // socket.on("hand-raised", function() {
-  //   client.decr("HandsRaised");
-  //   status();
-  // });
+  socket.on("clap-raised", function() {
+    client.incr("ClapsRaised");
+    
+    statusclap();
+    setTimeout(function(){
+    client.decr("ClapsRaised");
+    statusclap();
+    },5000);
+    
+  });
 
 
 });
@@ -74,6 +82,7 @@ app.get("/", function(req, res) {
     console.log("somebody returned");
   }
   status();
+  statusclap();
 });
 
 app.get("/chatroom",function(req,res){
@@ -93,3 +102,17 @@ function status() {
     });
   });
 };
+  function statusclap() {
+    client.get("ClapsRaised",function(err,claps){
+      client.lrange("UsersId",0,-1,function(err,usersList){
+     
+        console.log("Claps Raised = "+ claps);  
+      
+      }); 
+      
+      
+      
+      });
+    };
+  
+
