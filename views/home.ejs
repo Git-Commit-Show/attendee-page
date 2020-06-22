@@ -7,7 +7,10 @@
     <meta charset="utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
-    <link rel="shortcut icon" href="assets/img/invide.png"/>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+        
+        <link rel="shortcut icon" href="assets/img/invide.png"/>
     <link rel="icon" href="assets/img/invide.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/index.css?version=51"/>
@@ -17,10 +20,6 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- Jquery script,socket script,raise hand script -->
-    <script defer src="http://localhost:3000/socket.io/socket.io.js"> </script>
-  <script defer src="/script.js"></script>
-  
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
   
 
 </head> 
@@ -95,10 +94,10 @@
 				<div id="l-m-text-div1">
 					<span>32%</span>
 					<p>of total audience</p>
-                    <form id="handraised">
-                    <button class="l-m-text-button" type="submit" id="submithand">
+                    <form id="hand">
+                    <button class="l-m-text-button" type="submit" id="submit">
 						<img src="assets/img/raise-hand.png">
-						<p>Raise Hands</p>	
+						<p id="number">Raise Hands</p>	
                     </button>
                     </form>
 					<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do .</p>
@@ -344,13 +343,21 @@
     </div>    
     <!---FOOTER SECTION END--->
     <!-- SCRIPTS -->
+    
+    
+   
     <script type="text/javascript" src="assets/slick/slick.js"></script>
     <script type="text/javascript" src="assets/js/slick-effect.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+   
+       
+        <script  src="/script.js"></script>
+       
+   
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
@@ -361,6 +368,8 @@
         onload="loadZCPopup('2eda160ea23c299e223fa0d67ab25aec464ea8c0b48e713d7','ZCFORMVIEW','2a45059ac55260ce7d71b62c3142be692')"
         onreadystatechange="loadZCPopup('2eda160ea23c299e223fa0d67ab25aec464ea8c0b48e713d7','ZCFORMVIEW','2a45059ac55260ce7d71b62c3142be692')"></script>
     <!--ZC Popup Code Ends-->
+
+    
 </body>
 
 </html>
