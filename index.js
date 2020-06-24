@@ -1,13 +1,25 @@
+require('dotenv').config();
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
 const redis = require("redis");
-var socket=require("socket.io");  
+var socket=require("socket.io"); 
+
+const password=process.env.PASSWORD;
+const secret=process.env.SECRET;
+const time=process.env.TIME;
+const port=process.env.PORT;
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-let client = redis.createClient();
+
+
+let client = redis.createClient({
+  port      : port,           
+  password  : password
+});
 client.on("connect", function() {
   console.log("redis connected");
 });
@@ -20,6 +32,12 @@ let server=app.listen(3000,function(){
   console.log("Server started at port 3000");
 });
 
+
+
+
+
+
+
 const io = socket(server);
 
 let users = [];
@@ -27,43 +45,33 @@ let users = [];
 client.set("HandsRaised",0);
 client.set("ClapsRaised",0);
 
+
 io.on("connection", socket => {
 
 
   socket.emit("pageOpened",users[0]);
-
+  
   socket.on("raise-hand", function() {
-    
     client.incr("HandsRaised");
-    
-    status();
-    setTimeout(function(){
-    client.decr("HandsRaised");
-    status();
-    },5000);
-    
-
+     status();
   });
 
   socket.on("clap-raised", function() {
     client.incr("ClapsRaised");
-    
     statusclap();
-    setTimeout(function(){
-    client.decr("ClapsRaised");
-    statusclap();
-    },5000);
-    
   });
 
+  
 
 });
+
+
 
 var cookieParser = require('cookie-parser');
 var session = require('express-session')
 app.use(cookieParser());
 app.use(session({
-    secret: '34SDgsdgspxxxxxxxdfsG', // just a long random string
+    secret: secret, // just a long random string
     resave: false,
     saveUninitialized: true
 }));
@@ -73,7 +81,10 @@ app.use(session({
 app.get("/", function(req, res) {
   const id = req.sessionID;
 
-  res.render("home.ejs");
+    res.render("home.ejs");
+    
+
+  
   if (users.indexOf(id) == -1) {
     users.unshift(id);
     client.lpush(["UsersId",id]);
@@ -81,38 +92,46 @@ app.get("/", function(req, res) {
   } else {
     console.log("somebody returned");
   }
-  status();
-  statusclap();
+
+  
 });
+
 
 app.get("/chatroom",function(req,res){
  res.render("chatroom.ejs");
 });
 
 function status() {
-  client.get("HandsRaised",function(err,hands){
+  client.get("HandsRaised",function(err,data){
     client.lrange("UsersId",0,-1,function(err,usersList){
-     
-      const per=(hands/usersList.length)*100;
-      // I'VE TO USE THIS VALUE SUCH THAT INNERTEXT OF CURRENT % CHANGES,SO THAT CHANGED 
-      // PERCENTAGE GET DISPLAYED   
-      console.log("Active Users = "+ usersList.length+ "  Hands Raised = "+ (hands/usersList.length)*100+"%");
-    
-    
+   
+     const value=(data/usersList.length)*100;
+     console.log("hands Raised = "+ value+"%");
+      io.emit("handscount",value);
+      setTimeout(function(){
+        client.del("HandsRaised");
+        },time);
+      
+
     });
+    
   });
+  
 };
   function statusclap() {
     client.get("ClapsRaised",function(err,claps){
       client.lrange("UsersId",0,-1,function(err,usersList){
      
-        console.log("Claps Raised = "+ claps);  
+        console.log("Claps Raised = "+ claps); 
+        io.emit("clapscount",claps);
+      
+        setTimeout(function(){
+        client.del("ClapsRaised");
+        },time);
+      
       
       }); 
-      
-      
-      
-      });
+     });
     };
   
 

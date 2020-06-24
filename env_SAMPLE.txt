@@ -1,0 +1,4 @@
+SECRET=34SDgsdgspxxxxxxxdfsG
+TIME=6000
+PASSWORD=your password
+PORT=6379   
