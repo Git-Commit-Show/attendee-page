@@ -54,6 +54,7 @@
         <div id="l-m-video">
             <div id="twitch-embed"></div>
             <div id="iframe-text">
+                <div class="message">
                 <p>
                     <span class="iframe-text-ques">Your Question </span>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -61,17 +62,21 @@
                     aliquip ex ea commodo consequat. <br>
                     <span class="iframe-text-status">approved</span>
                 </p>
-                <p>
+            </div>
+            <div class="message">    
+            <p>
                     <span class="iframe-text-ques">Your Question </span>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat. <br>
                     <span class="iframe-text-status">submitted</span>
                 </p>
+            </div>
                 <form action="index_submit" id="iframe-text-form" name="iframe-text-form" method="get"
                     accept-charset="utf-8">
-                    <textarea name="iframe-text-form" rows="3" cols="26" maxlength="80" placeholder="Type your question"
+                    <textarea id="message" name="iframe-text-form" rows="3" cols="26" maxlength="80" placeholder="Type your question"
                         draggable="false"></textarea>
+                        <button type="submit">submit</button>
                     <div style="display: block; width: max-content; height: min-content;">
                         <div class='iframe-button-div'>
                             <div class="dropdown btn-group">

@@ -48,7 +48,15 @@ client.set("ClapsRaised",0);
 
 io.on("connection", socket => {
 
-
+// TO EMIT QUESTIONS ASKED
+ socket.emit("questions","Welcome to Invid"); 
+ 
+//  TO FETCH THE QUESTIONS TO THE SERVER
+ socket.on("questionmessage",function(msg){
+   io.emit("questions",msg);
+ });
+ 
+ 
   socket.emit("pageOpened",users[0]);
   
   socket.on("raise-hand", function() {
@@ -105,7 +113,7 @@ function status() {
   client.get("HandsRaised",function(err,data){
     client.lrange("UsersId",0,-1,function(err,usersList){
    
-     const value=(data/usersList.length)*100;
+      let value=((data/usersList.length)*100).toFixed(0);
      console.log("hands Raised = "+ value+"%");
       io.emit("handscount",value);
       setTimeout(function(){

@@ -3,6 +3,48 @@ const socket = io("http://localhost:3000");
 
 console.log("welcome script is working")
 
+var questionform=document.getElementById("iframe-text-form");
+
+
+
+socket.on("questions",function(message){
+ console.log(message);
+  showQuestion(message);
+})
+
+questionform.addEventListener("submit",function(e){
+  e.preventDefault();
+  const msg=e.target.elements.message.value;
+  console.log(msg);
+
+  // EMIT QUESTION TEXT TO SERVER
+  socket.emit("questionmessage",msg);
+
+  // CLEAR INPUT 
+  e.target.elements.message.value= '';
+  e.target.elements.message.focus();  
+})
+
+
+
+// FUNCTION TO DISLPAY MESSAGE
+function showQuestion(message){
+const div=document.createElement("div");
+div.classList.add("message");
+div.innerHTML=`<p>
+<span class="iframe-text-ques">${message} </span>
+  
+</p>`;
+
+document.querySelector("#iframe-text").appendChild(div);
+}
+
+console.log(document.querySelector("iframe-text"))
+
+
+
+
+
 // RAISE HAND CODE
 var hand = document.querySelector("#hand");
 var submit = document.querySelector("#submit");
