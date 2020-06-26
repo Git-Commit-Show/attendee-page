@@ -6,9 +6,9 @@ console.log("welcome script is working")
 var questionform=document.getElementById("iframe-text-form");
 
 
-
+// UPDATE DOM WITH CURRENT VALUE OF QUESTIONS
 socket.on("questions",function(message){
- console.log(message);
+ 
   showQuestion(message);
 })
 
@@ -29,17 +29,15 @@ questionform.addEventListener("submit",function(e){
 
 // FUNCTION TO DISLPAY MESSAGE
 function showQuestion(message){
-const div=document.createElement("div");
-div.classList.add("message");
-div.innerHTML=`<p>
-<span class="iframe-text-ques">${message} </span>
-  
-</p>`;
-
-document.querySelector("#iframe-text").appendChild(div);
+ 
+console.log(message);
+  const div=document.querySelector(".message")
+ div.innerHTML=`<p>
+ <span class="iframe-text-ques">${message} </span>
+ 
+</p>`
 }
 
-console.log(document.querySelector("iframe-text"))
 
 
 

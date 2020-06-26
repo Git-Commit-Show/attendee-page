@@ -5,10 +5,10 @@ var bodyParser = require("body-parser");
 const redis = require("redis");
 var socket=require("socket.io"); 
 
-const password=process.env.PASSWORD;
-const secret=process.env.SECRET;
-const time=process.env.TIME;
-const port=process.env.PORT;
+const password=process.env.REDIS_PASSWORD;
+const secret=process.env.SESSIONS_SECRET;
+const time=process.env.HANDS_RAISED_TIME;
+const port=process.env.REDIS_PORT;
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -48,12 +48,27 @@ client.set("ClapsRaised",0);
 
 io.on("connection", socket => {
 
-// TO EMIT QUESTIONS ASKED
+//  TO FETCH THE QUESTIONS TO THE SERVER 
  socket.emit("questions","Welcome to Invid"); 
  
-//  TO FETCH THE QUESTIONS TO THE SERVER
+// TO EMIT QUESTIONS ASKED to everyone
  socket.on("questionmessage",function(msg){
-   io.emit("questions",msg);
+// function storeQuestions(msg){
+  client.lpush(["allQuestions",msg]);
+  client.lrange("allQuestions",0,-1,function(err,dta){
+          io.emit("questions",dta);
+  });
+  
+  // client.llen("allQuestions",function(err,da){
+  //   for(i=0;i<da;i++){
+  //     client.lrange("allQuestions",i,i,function(err,dta){
+  //       io.emit("questions",dta);
+  //       // console.log(dta)
+  //     });
+  //   }
+    
+  //   console.log(da);
+  // });
  });
  
  

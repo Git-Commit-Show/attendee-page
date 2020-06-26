@@ -1,4 +1,4 @@
-SECRET=34SDgsdgspxxxxxxxdfsG
-TIME=6000
-PASSWORD=your password
-PORT=6379   
+SESSIONS_SECRET=34SDgsdgspxxxxxxxdfsG
+HANDS_RAISED_TIME=6000
+REDIS_PASSWORD=your password
+REDIS_PORT=6379   
