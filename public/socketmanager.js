@@ -1,3 +1,18 @@
+socket.on('connected', function(data) {
+    console.log(data);
+    socket.emit('subscribe', 'public');
+});
+
+socket.on('message', function(message) {
+    updateMessageUI(message);
+})
+
+
+function updateMessageUI(message) {
+    console.log("Whoa : " + message);
+}
+
+
 document.getElementById("iframe-text-form").addEventListener("submit", function(e) {
     e.preventDefault();
     const msg = e.target.elements.message.value;
