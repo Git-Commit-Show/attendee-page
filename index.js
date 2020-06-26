@@ -35,7 +35,7 @@ let server = app.listen(SERVER_PORT, function () {
 const io = socket(server);
 
 let users = [];
-
+let msgvalue=''; //variable used to store initial value of Question
 client.set("HandsRaised", 0);
 client.set("ClapsRaised", 0);
 
@@ -43,14 +43,15 @@ client.set("ClapsRaised", 0);
 io.on("connection", socket => {
 
   //  TO FETCH THE QUESTIONS TO THE SERVER 
-  socket.emit("questions", "Welcome to Invid");
+  socket.emit("questions", msgvalue);
 
   // TO EMIT QUESTIONS ASKED to everyone
   socket.on("questionmessage", function (msg) {
     // function storeQuestions(msg){
     client.lpush(["allQuestions", msg]);
     client.lrange("allQuestions", 0, -1, function (err, dta) {
-      io.emit("questions", dta);
+      msgvalue=dta;
+      io.emit("questions", msgvalue);
     });
 
     // client.llen("allQuestions",function(err,da){
