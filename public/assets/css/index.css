@@ -126,8 +126,8 @@ body {
 	-webkit-box-direction: normal;
 	    -ms-flex-direction: row;
 	        flex-direction: row;
-	-ms-flex-wrap: nowrap;
-	    flex-wrap: nowrap;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
 }
 #twitch-embed {
 	height: 495px;
@@ -153,22 +153,23 @@ body {
     border: 1px solid #EFEFEF;
     margin-right: 117px;
     padding: 5px;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: flex-start;
+        -ms-flex-align: flex-start;
+            align-items: flex-start;
     -webkit-box-pack: end;
     	-ms-flex-pack: end;
 	justify-content: flex-end;
-	overflow: hidden;
+	overflow: scroll;
+	flex-wrap: wrap;
 }
 @media screen and (max-width: 429px){
 	#twitch-embed, #iframe-text {
-		height: 240px;
+		height: 240px !important;
 	}
 }
 @media screen and (min-width:430px) and (max-width: 539px){
 	#twitch-embed, #iframe-text {
-		height: 295px;
+		height: 295px !important;
 	}
 }
 @media screen and (min-width:540px) and (max-width: 750px){
@@ -184,6 +185,15 @@ body {
 @media screen and (min-width: 1500px){
 	#twitch-embed, #iframe-text {
 		height: 600px;
+	}
+}
+@media screen and (max-width: 1146px){
+	#iframe-text {
+		flex: 1 1 280px;
+		height: 380px;
+		margin-left: 5%;
+		margin-top: 2%;
+		margin-right: 1% !important;
 	}
 }
 #iframe-text > p{
@@ -263,10 +273,7 @@ body {
     width: fill-available;
 }
 #iframe-button-arrow {
-	display: inline-block;
-	width: -webkit-fit-content;
-	width: -moz-fit-content;
-	width: fit-content;
+	display: contents;
 }
 #iframe-button-arrow > img {
 	margin-top: 5px !important;
@@ -616,7 +623,7 @@ body {
 	.button-div a {
     font-size: 12px !important;
     line-height: 22px !important;
-    width: 212px !important;
+    width: 194px !important;
 	}
 }
 .button-div a p {

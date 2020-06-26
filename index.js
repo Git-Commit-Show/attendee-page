@@ -49,7 +49,7 @@ client.set("ClapsRaised", 0);
 io.on("connection", socket => {
 
   //  TO FETCH THE QUESTIONS TO THE SERVER 
-  socket.emit("questions", "Welcome to Invid");
+  socket.emit("questions", "Welcome to GCS");
 
   // TO EMIT QUESTIONS ASKED to everyone
   socket.on("questionmessage", function (msg) {
