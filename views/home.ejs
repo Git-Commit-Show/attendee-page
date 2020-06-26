@@ -52,31 +52,40 @@
             <p>Live Masterclass</p>
         </div>
         <div id="l-m-video">
-            <div id="twitch-embed"></div>
+            <div id="twitch-embed">
+                <iframe
+                    src="https://player.twitch.tv/?channel=gitcommitshow&parent=twitch.gitcommit.show&muted=true&autoplay=false&playsinline=true"
+                    height="100%" width="100%" frameborder="0" scrolling="no" allowfullscreen="true">
+                </iframe>
+            </div>
             <div id="iframe-text">
                 <div class="message">
-                <p>
-                    <span class="iframe-text-ques">Your Question </span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. <br>
-                    <span class="iframe-text-status">approved</span>
-                </p>
-            </div>
-            <div class="message">    
-            <p>
-                    <span class="iframe-text-ques">Your Question </span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. <br>
-                    <span class="iframe-text-status">submitted</span>
-                </p>
-            </div>
+                    <p>
+                        <span class="iframe-text-ques">Your Question </span>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut
+                        aliquip ex ea commodo consequat. <br>
+                        <span class="iframe-text-status">approved</span>
+                    </p>
+                </div>
+                <div class="message">
+                    <p>
+                        <span class="iframe-text-ques">Your Question </span>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut
+                        aliquip ex ea commodo consequat. <br>
+                        <span class="iframe-text-status">submitted</span>
+                    </p>
+                </div>
                 <form action="index_submit" id="iframe-text-form" name="iframe-text-form" method="get"
                     accept-charset="utf-8">
-                    <textarea id="message" name="iframe-text-form" rows="3" cols="26" maxlength="80" placeholder="Type your question"
-                        draggable="false"></textarea>
-                        <button type="submit">submit</button>
+                    <textarea id="message" name="iframe-text-form" rows="3" cols="26" maxlength="80"
+                        placeholder="Type your question" draggable="false"></textarea>
+                    <button type="submit">submit</button>
                     <div style="display: block; width: max-content; height: min-content;">
                         <div class='iframe-button-div'>
                             <div class="dropdown btn-group">
@@ -125,25 +134,25 @@
             <br>
             <div id="l-m-text-div">
                 <div id="l-m-text-div1">
-                    <span id="handscount" >0%</span>
-					<p>of total audience</p>
-                    <form id="hand"  >
-                    <button class="l-m-text-button" type="submit" id="submit" > 
-						<img src="assets/img/raise-hand.png">
-						<p id="number">Raise Hands</p>	
-                    </button>
+                    <span id="handscount">0%</span>
+                    <p>of total audience</p>
+                    <form id="hand">
+                        <button class="l-m-text-button" type="submit" id="submit">
+                            <img src="assets/img/raise-hand.png">
+                            <p id="number">Raise Hands</p>
+                        </button>
                     </form>
-                     <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do .</p>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do .</p>
                 </div>
                 <div id="l-m-text-div2">
                     <span id="clapscount">0</span>
                     <form id="clap">
-					<button class="l-m-text-button" type="submit" id="submitclap"> 
-						<img src="assets/img/clap.png">
-						<p id=clapnumber>Claps</p>
-                    </button>
+                        <button class="l-m-text-button" type="submit" id="submitclap">
+                            <img src="assets/img/clap.png">
+                            <p id=clapnumber>Claps</p>
+                        </button>
                     </form>
-					 <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do .</p>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do .</p>
                 </div>
                 <div id="l-m-text-div3">
                     <button class="l-m-text-button" onclick="window.open('https://meet.gitcommit.show');" type="button">
@@ -390,17 +399,22 @@
     <!-- SCRIPTS -->
     <!-- Load the Twitch embed script -->
     <script src="https://embed.twitch.tv/embed/v1.js"></script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         var embed = new Twitch.Embed("twitch-embed", {
-            width: 796,
-            height: 495,
             channel: "gitcommitshow",
             layout: "video",
+            theme: "dark",
             autoplay: false,
+            scrolling: "no",
+            playsinline: true,
             // only needed if your site is also embedded on embed.example.com and othersite.example.com 
             parent: ["twitch.gitcommit.show"]
         });
-    </script>
+        embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+            var player = embed.getPlayer();
+            player.play();
+        });
+    </script> -->
     <script async src="https://cdn.nolt.io/widgets.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
     <script type="text/javascript" src="assets/slick/slick.js"></script>

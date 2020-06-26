@@ -2,8 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;900&display=swap");
- 
-
 /* SCROLL BAR CSS */
 /* width */
 ::-webkit-scrollbar {
@@ -48,7 +46,6 @@ body {
 }
 /*BODY CSS ENDS*/
 /*NAVBAR CSS*/
-
 #logo {
 	height: 40px;
 	width: 40px;
@@ -135,10 +132,12 @@ body {
 #twitch-embed {
 	height: 495px;
 	padding-left: 5%;
+	padding-right: 10px;
 	-webkit-box-flex: 1;
 	    -ms-flex: 1 1 796px;
 	        flex: 1 1 796px;
 }
+
 #iframe-text {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -161,6 +160,31 @@ body {
     	-ms-flex-pack: end;
 	justify-content: flex-end;
 	overflow: hidden;
+}
+@media screen and (max-width: 429px){
+	#twitch-embed, #iframe-text {
+		height: 240px;
+	}
+}
+@media screen and (min-width:430px) and (max-width: 539px){
+	#twitch-embed, #iframe-text {
+		height: 295px;
+	}
+}
+@media screen and (min-width:540px) and (max-width: 750px){
+	#twitch-embed, #iframe-text {
+		height: 380px;
+	}
+}
+@media screen and (max-width: 950px){
+	#iframe-text {
+		margin-right: 6%;
+	}
+}
+@media screen and (min-width: 1500px){
+	#twitch-embed, #iframe-text {
+		height: 600px;
+	}
 }
 #iframe-text > p{
 	font-family: "Work Sans", sans-serif;
