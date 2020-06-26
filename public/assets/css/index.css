@@ -137,7 +137,37 @@ body {
 	    -ms-flex: 1 1 796px;
 	        flex: 1 1 796px;
 }
-
+.scrollquestions {
+	height: inherit;
+}
+.message {
+	position: absolute;
+    width: 224px;
+    height: 358px;
+    overflow-y: scroll;
+}
+@media screen and (max-width: 1144px) and (min-width: 540px){
+	.message {
+    	height: 260px !important;
+    	width: inherit;
+		margin-right: 10%;
+		
+	}
+}
+@media screen and (max-width: 539px) and (min-width: 430px){
+	.message {
+    	height: 192px !important;
+    	width: inherit;
+    	margin-right: 16px;
+	}
+}
+@media screen and (max-width: 429px) {
+	.message {
+    	height: 105px !important;
+    	width: inherit;
+    	margin-right: 16px;
+	}
+}
 #iframe-text {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -159,8 +189,8 @@ body {
     -webkit-box-pack: end;
     	-ms-flex-pack: end;
 	justify-content: flex-end;
-	overflow: scroll;
 	flex-wrap: wrap;
+	overflow-wrap: anywhere;
 }
 @media screen and (max-width: 429px){
 	#twitch-embed, #iframe-text {
