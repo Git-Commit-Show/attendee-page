@@ -53,26 +53,20 @@
         </div>
         <div id="l-m-video">
             <div id="twitch-embed">
-                <iframe
-                    src="https://player.twitch.tv/?channel=gitcommitshow&parent=twitch.gitcommit.show&muted=true&autoplay=false&playsinline=true"
-                    height="100%" width="100%" frameborder="0" scrolling="no" allowfullscreen="true">
-                </iframe>
             </div>
             <div id="iframe-text">
                 <div class="scrollquestions">
-                <div class="message">
-                    <p>
-                        <span class="iframe-text-ques">Welcome to Invide </span>
-                        
-                    </p>
+                    <div class="message">
+                        <p>
+                            <span class="iframe-text-ques">Welcome to Invide</span>
+
+                        </p>
+                    </div>
                 </div>
-                
-            </div>
                 <form action="index_submit" id="iframe-text-form" name="iframe-text-form" method="get"
                     accept-charset="utf-8">
                     <textarea id="message" name="iframe-text-form" rows="3" cols="26" maxlength="80"
                         placeholder="Type your question" draggable="false"></textarea>
-                    <button type="submit">submit</button>
                     <div style="display: block; width: max-content; height: min-content;">
                         <div class='iframe-button-div'>
                             <div class="dropdown btn-group">
@@ -108,9 +102,9 @@
                                 </ul>
                             </div>
                         </div>
-                        <span id="iframe-button-arrow">
+                        <button type="submit" id="iframe-button-arrow">
                             <img src="assets/img/iframe-text-arrow.png">
-                        </span>
+                        </button>
                     </div>
                 </form>
             </div>
@@ -386,14 +380,15 @@
     <!-- SCRIPTS -->
     <!-- Load the Twitch embed script -->
     <script src="https://embed.twitch.tv/embed/v1.js"></script>
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
         var embed = new Twitch.Embed("twitch-embed", {
             channel: "gitcommitshow",
             layout: "video",
+            height: "100%",
+            width: "100%",
             theme: "dark",
             autoplay: false,
             scrolling: "no",
-            playsinline: true,
             // only needed if your site is also embedded on embed.example.com and othersite.example.com 
             parent: ["twitch.gitcommit.show"]
         });
@@ -401,7 +396,7 @@
             var player = embed.getPlayer();
             player.play();
         });
-    </script> -->
+    </script>
     <script async src="https://cdn.nolt.io/widgets.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
     <script type="text/javascript" src="assets/slick/slick.js"></script>
