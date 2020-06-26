@@ -5,20 +5,20 @@ var bodyParser = require("body-parser");
 const redis = require("redis");
 var socket = require("socket.io");
 
-const password = process.env.REDIS_PASSWORD;
-const secret = process.env.SESSIONS_SECRET;
-const time = process.env.HANDS_RAISED_TIME;
-const port = process.env.REDIS_PORT;
+const REDIS_PASSWORD = process.env.REDIS_PASSWORD;
+const SESSIONS_SECRET = process.env.SESSIONS_SECRET;
+const HANDS_RAISED_TIME = process.env.HANDS_RAISED_TIME;
+const REDIS_PORT = process.env.REDIS_PORT;
+const SERVER_PORT = process.env.SERVER_PORT;
 
 app.use(bodyParser.urlencoded({
   extended: true
 }));
 
 
-
 let client = redis.createClient({
-  port: port,
-  password: password
+  port: REDIS_PORT,
+  password: REDIS_PASSWORD
 });
 client.on("connect", function () {
   console.log("redis connected");
@@ -28,15 +28,9 @@ client.flushall();
 
 app.use(express.static("public"));
 
-let server = app.listen(3000, function () {
-  console.log("Server started at port 3000");
+let server = app.listen(SERVER_PORT, function () {
+  console.log(`Server started at port ${SERVER_PORT}`);
 });
-
-
-
-
-
-
 
 const io = socket(server);
 
@@ -49,7 +43,7 @@ client.set("ClapsRaised", 0);
 io.on("connection", socket => {
 
   //  TO FETCH THE QUESTIONS TO THE SERVER 
-  socket.emit("questions", "Welcome to GCS");
+  socket.emit("questions", "Welcome to Invid");
 
   // TO EMIT QUESTIONS ASKED to everyone
   socket.on("questionmessage", function (msg) {
@@ -94,7 +88,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session')
 app.use(cookieParser());
 app.use(session({
-  secret: secret, // just a long random string
+  secret: SESSIONS_SECRET, // just a long random string
   resave: false,
   saveUninitialized: true
 }));
@@ -133,7 +127,7 @@ function status() {
       io.emit("handscount", value);
       setTimeout(function () {
         client.del("HandsRaised");
-      }, time);
+      }, HANDS_RAISED_TIME);
 
 
     });
@@ -141,6 +135,7 @@ function status() {
   });
 
 };
+
 function statusclap() {
   client.get("ClapsRaised", function (err, claps) {
     client.lrange("UsersId", 0, -1, function (err, usersList) {
@@ -150,7 +145,7 @@ function statusclap() {
 
       setTimeout(function () {
         client.del("ClapsRaised");
-      }, time);
+      }, HANDS_RAISED_TIME);
 
 
     });
