@@ -41,7 +41,7 @@
     <p id="alter"></p>
 </body>
 <script>
-    var name=prompt("please enter your name:-")
+    var name=prompt("please enter your name:-","Random Attendee")
     console.log(document.querySelector('#video'))
     var domain = 'meet.gitcommit.show';
     var options = {
@@ -99,7 +99,7 @@
     var min=Math.floor((show%(1000*60*60)) / (1000 * 60));
     var second=Math.floor((show%(1000*60))/1000)
     Divtime.innerHTML=min+":"+second;
-    if(x==20)
+    if(x==15*60)
     {
         window.location.href = "http://live.gitcommit.show";
     }
