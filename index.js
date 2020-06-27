@@ -16,7 +16,7 @@ const SERVER_PORT = process.env.SERVER_PORT;
 const CHAT_SERVER = process.env.CHAT_SERVER;
 
 
-const server = app.listen(SERVER_PORT, function() {
+const server = app.listen(3000, function() {
     console.log(`Server started at port ${SERVER_PORT}`);
 });
 
