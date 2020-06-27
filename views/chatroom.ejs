@@ -15,7 +15,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-</head>
+        <style>
+            html,body{margin:0;height:100%;}
+            div{margin:0;display: inline;}
+            .video{height:100%;}
+            #time{position:absolute;bottom:5px;font-size: 35px;}
+            #links{position: absolute;bottom:35px;font-size: 35px;}
+            #alter{position: absolute;bottom: 35px;right: 35px;font-size:35px;}
+        </style>
+    </head>
 
 <body>
     <!-- NAVBAR SECTION-->
@@ -52,8 +60,10 @@
             <img src="assets/img/ellipse.png">
             <p>Live Masterclass</p>
         </div>
-        <div id="meet">
-        </div>
+        <div id="time"></div>
+        <div id="links"></div>
+        <div id="meet"></div>
+        <div id="alter"></div>
     </div>
     <!-- LIVE MASTERCLASS SECTION ENDS -->
     <!-- Upcoming Session Section -->
@@ -312,5 +322,5 @@
 
 
 </body>
-
+<script src="timer.js"></script>
 </html>
