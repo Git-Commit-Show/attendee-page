@@ -7,11 +7,9 @@ socket.on('message', function(message) {
     updateMessageUI(message);
 })
 
-
-function updateMessageUI(message) {
-    console.log("Whoa : " + message);
-}
-
+socket.on('loadAllQuestions', function(data) {
+    updateAllQuestions(data)
+})
 
 document.getElementById("iframe-text-form").addEventListener("submit", function(e) {
     e.preventDefault();
@@ -29,7 +27,7 @@ document.getElementById("iframe-text-form").addEventListener("submit", function(
 
 // UPDATE DOM WITH CURRENT VALUE OF QUESTIONS
 socket.on("questions", function(message) {
-    showQuestion(message);
+    // updateAllQuestions(message);
 })
 
 

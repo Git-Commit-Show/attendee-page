@@ -56,26 +56,18 @@ io.on("connection", socket => {
 
     // TO EMIT QUESTIONS ASKED to everyone
     socket.on("questionmessage", function(msg) {
-        io.to('public').emit('message', msg);
-        // function storeQuestions(msg){
+        io.emit("message", msg);
         client.lpush(["allQuestions", msg]);
-        client.lrange("allQuestions", 0, -1, function(err, dta) {
-            msgvalue = dta;
-            io.emit("questions", msgvalue);
-        });
-
-        // client.llen("allQuestions",function(err,da){
-        //   for(i=0;i<da;i++){
-        //     client.lrange("allQuestions",i,i,function(err,dta){
-        //       io.emit("questions",dta);
-        //       // console.log(dta)
-        //     });
-        //   }
-
-        //   console.log(da);
-        // });
+        io.to('public').emit('message', msg);
     });
 
+
+    client.lrange("allQuestions", -30, -1, function(err, data) {
+        var msgHtml = data.map(function(msg) {
+            return "<div class='message-item'><span style='opacity:0.8;font-size:70%;margin-top:0px;margin-bottom:5px;'>#NewQuestion #ToSpeaker</span><br/>" + msg + "</div>"
+        })
+        io.emit("loadAllQuestions", msgHtml ? msgHtml.join(' ') : "");
+    });
 
     socket.emit("pageOpened", users[0]);
 
