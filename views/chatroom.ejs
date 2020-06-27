@@ -22,15 +22,15 @@
         #links
         {
             position: absolute;
-            bottom:35px;
-            font-size: 35px;
+            bottom:3px;
+            font-size: 30px;
         }
         #alter
         {
             position: absolute;
             bottom: 35px;
             right: 35px;
-            font-size:35px;
+            font-size:30px;
         }
     </style>
 </head>
@@ -86,24 +86,30 @@
     // },30000)
 </script>
 <script>
+    var x=0;
     const time=new Date().getTime()+15*60*1000;
     const Divtime=document.getElementById("time");
     const links=document.getElementById("links")
     const alter=document.getElementById("alter")
     console.log(alter)
-setInterval(()=>{
+    setInterval(()=>{
+    x=x+1;
     const rtime=new Date().getTime();
     var show=time-rtime;
     var min=Math.floor((show%(1000*60*60)) / (1000 * 60));
     var second=Math.floor((show%(1000*60))/1000)
     Divtime.innerHTML=min+":"+second;
+    if(x==20)
+    {
+        window.location.href = "http://live.gitcommit.show";
+    }
 },1000)
 setInterval(()=>{
     links.innerHTML=`<a href="live.gitcommit.show"> live stream is about to start click here</a>`
 },13*60*1000)
 
 setInterval(()=>{
-    alter.innerHTML=`facing issue <br><a href="">click here</a> to try alternative`
+    alter.innerHTML=`facing issue <br><a href="https://us04web.zoom.us/j/8084372218?pwd=RW1HS2NJQlFEYnNGTUhqbGdvQzRCdz09">click here</a> to try alternative`
 },10000)
 </script>
 </html>
