@@ -62,7 +62,7 @@ io.on("connection", socket => {
     });
 
 
-    client.lrange("allQuestions", -30, -1, function(err, data) {
+    client.lrange("allQuestions", 0, 30, function(err, data) {
         var msgHtml = data.map(function(msg) {
             return "<div class='message-item'><span style='opacity:0.8;font-size:70%;margin-top:0px;margin-bottom:5px;'>#NewQuestion #ToSpeaker</span><br/>" + msg + "</div>"
         })
