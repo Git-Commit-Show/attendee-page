@@ -46,17 +46,15 @@
                 <div>
                     <button class="l-m-text-button" onclick="window.open('https://meet.gitcommit.show/hallsdsdway');" type="button">
                         <img src="assets/img/handshake.png">
-                        <p>Meet Attendees F2F</p>
+                        <p>Meet Fellow Attendees F2F</p>
                     </button>
                 </div>
             </div>
             <div>
-                <form id="clap">
-                    <button class="l-m-text-button" type="submit" id="submitclap">
-                        <img src="assets/img/clap.png">
-                        <p id=clapnumber>Claps</p>
-                    </button>
-                </form>
+                <button class="clap-btn l-m-text-button" type="submit" onclick="clapNow()">
+                    <img src="assets/img/clap.png">
+                    <p>Clap</p>
+                </button>
             </div>
         </div>
         <div id="l-m-header">
@@ -122,13 +120,11 @@
             <br>
             <div id="l-m-text-div">
                 <div id="l-m-text-div2">
-                    <span id="clapscount">0</span>
-                    <form id="clap">
-                        <button class="l-m-text-button" type="submit" id="submitclap">
-                            <img src="assets/img/clap.png">
-                            <p id=clapnumber>Claps</p>
-                        </button>
-                    </form>
+                    <span class="claps-count" data-value="0">0</span>
+                    <button class="clap-btn l-m-text-button" type="submit" onclick="clapNow()">
+                        <img src="assets/img/clap.png">
+                        <p>Clap</p>
+                    </button>
                     <p> Show appreciation for the speaker</p>
                 </div>
                 <div id="l-m-text-div3">
@@ -139,14 +135,12 @@
                     <p> Meet fellow attendees in a small online meeting group</p>
                 </div>
                 <div id="l-m-text-div1">
-                    <span id="handscount">0%</span>
+                    <span class="hands-raised-count" data-value="0%">0%</span>
                     <p>of total audience</p>
-                    <form id="hand">
-                        <button class="l-m-text-button" type="submit" id="submit">
-                            <img src="assets/img/raise-hand.png">
-                            <p id="number">Raise Hands</p>
-                        </button>
-                    </form>
+                    <button class="hand-raise-btn l-m-text-button" type="submit" onclick="raiseHandNow()">
+                        <img src="assets/img/raise-hand.png">
+                        <p>Raise Hand</p>
+                    </button>
                     <p> Raise hands to answer the speaker's question</p>
                 </div>
             </div>

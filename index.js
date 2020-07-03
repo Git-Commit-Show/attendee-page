@@ -16,7 +16,7 @@ const SERVER_PORT = process.env.SERVER_PORT;
 const CHAT_SERVER = process.env.CHAT_SERVER;
 
 
-const server = app.listen(SERVER_PORT, function() {
+const server = app.listen(SERVER_PORT, function () {
     console.log(`Server started at port ${SERVER_PORT}`);
 });
 
@@ -31,7 +31,7 @@ let client = redis.createClient({
     port: REDIS_PORT,
     password: REDIS_PASSWORD
 });
-client.on("connect", function() {
+client.on("connect", function () {
     console.log("redis connected");
 });
 
@@ -47,23 +47,23 @@ client.set("ClapsRaised", 0);
 
 
 io.on("connection", socket => {
-    socket.on('subscribe', function(room) {
-            console.log(socket.id + 'Joined room: ' + room);
-            socket.join(room);
-        })
-        //  TO FETCH THE QUESTIONS TO THE SERVER 
+    socket.on('subscribe', function (room) {
+        console.log(socket.id + 'Joined room: ' + room);
+        socket.join(room);
+    })
+    //  TO FETCH THE QUESTIONS TO THE SERVER 
     socket.emit("questions", msgvalue);
 
     // TO EMIT QUESTIONS ASKED to everyone
-    socket.on("questionmessage", function(msg) {
+    socket.on("questionmessage", function (msg) {
         io.emit("message", msg);
         client.lpush(["allQuestions", msg]);
         io.to('public').emit('message', msg);
     });
 
 
-    client.lrange("allQuestions", 0, 30, function(err, data) {
-        var msgHtml = data.map(function(msg) {
+    client.lrange("allQuestions", 0, 30, function (err, data) {
+        var msgHtml = data.map(function (msg) {
             return "<div class='message-item'><span style='opacity:0.8;font-size:70%;margin-top:0px;margin-bottom:5px;'>#NewQuestion #ToSpeaker</span><br/>" + msg + "</div>"
         })
         io.emit("loadAllQuestions", msgHtml ? msgHtml.join(' ') : "");
@@ -71,18 +71,18 @@ io.on("connection", socket => {
 
     socket.emit("pageOpened", users[0]);
 
-    socket.on("raise-hand", function() {
+    sendClapCount();
+    sendHandRaisedCount();
+
+    socket.on("raise-hand", function () {
         client.incr("HandsRaised");
-        status();
+        sendHandRaisedCount();
     });
 
-    socket.on("clap-raised", function() {
+    socket.on("clap-raised", function () {
         client.incr("ClapsRaised");
-        statusclap();
+        sendClapCount();
     });
-
-
-
 });
 
 
@@ -95,7 +95,7 @@ app.use(session({
 
 
 
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
     const id = req.sessionID;
 
     res.render("home.ejs");
@@ -112,17 +112,17 @@ app.get("/", function(req, res) {
 });
 
 
-app.get("/chatroom", function(req, res) {
+app.get("/chatroom", function (req, res) {
     res.render("chatroom.ejs");
 });
 
-function status() {
-    client.get("HandsRaised", function(err, data) {
-        client.lrange("UsersId", 0, -1, function(err, usersList) {
+function sendHandRaisedCount() {
+    client.get("HandsRaised", function (err, data) {
+        client.lrange("UsersId", 0, -1, function (err, usersList) {
             let value = ((data / usersList.length) * 100).toFixed(0);
             console.log("hands Raised = " + value + "%");
             io.emit("handscount", value);
-            setTimeout(function() {
+            setTimeout(function () {
                 client.del("HandsRaised");
             }, HANDS_RAISED_TIME);
         });
@@ -131,16 +131,8 @@ function status() {
 
 };
 
-function statusclap() {
-    client.get("ClapsRaised", function(err, claps) {
-        client.lrange("UsersId", 0, -1, function(err, usersList) {
-
-            console.log("Claps Raised = " + claps);
-            io.emit("clapscount", claps);
-
-            setTimeout(function() {
-                client.del("ClapsRaised");
-            }, HANDS_RAISED_TIME);
-        });
+function sendClapCount() {
+    client.get("ClapsRaised", function (err, claps) {
+        io.emit("clapscount", claps);
     });
 };

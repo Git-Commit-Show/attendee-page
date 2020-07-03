@@ -424,8 +424,8 @@ body {
 	color: #EFEFEF;
 }
 .l-m-text-button {
-	width: 240px;
-	height: 43px;
+	min-width: 240px;
+	min-height: 43px;
 	background: #EFEFEF;
 	-webkit-box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.5);
 	        box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.5);
