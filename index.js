@@ -46,7 +46,8 @@ client.set("HandsRaised", 0);
 client.set("ClapsRaised", 0);
 
 
-io.on("connection", socket => {
+io.on("connection", function(socket) {
+    console.log("Connected: "+socket.handshake.address);
     socket.on('subscribe', function (room) {
         console.log(socket.id + 'Joined room: ' + room);
         socket.join(room);
@@ -83,6 +84,10 @@ io.on("connection", socket => {
         client.incr("ClapsRaised");
         sendClapCount();
     });
+
+    socket.on('disconnect', function() {
+        console.log("Disconnected: "+socket.handshake.address);
+    });
 });
 
 
@@ -107,8 +112,6 @@ app.get("/", function (req, res) {
     } else {
         // console.log("somebody returned");
     }
-
-
 });
 
 
@@ -126,9 +129,7 @@ function sendHandRaisedCount() {
                 client.del("HandsRaised");
             }, HANDS_RAISED_TIME);
         });
-
     });
-
 };
 
 function sendClapCount() {

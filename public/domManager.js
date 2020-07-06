@@ -13,7 +13,6 @@ function updateMessageUI(message) {
 }
 
 function updateClapCount(count) {
-    console.log('dsf '+count)
     Array.from(document.getElementsByClassName('claps-count')).forEach(function(elem){
         elem.setAttribute('data-value', ''+count);
         elem.innerHTML = ''+count;

@@ -1,1 +1,1 @@
-var socket = io.connect(window.location.host);
+var socket = io();
