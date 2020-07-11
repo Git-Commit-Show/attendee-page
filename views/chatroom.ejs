@@ -41,7 +41,8 @@
     <p id="alter"></p>
 </body>
 <script>
-    var name=prompt("please enter your name:-","Random Attendee")
+    var name=prompt("please enter your name:-")
+    if(name == null) name = "Fellow Attendee";
     console.log(document.querySelector('#video'))
     var domain = 'meet.gitcommit.show';
     var options = {
@@ -86,27 +87,31 @@
     // },30000)
 </script>
 <script>
+    
     var x=0;
-    const time=new Date().getTime()+15*60*1000;
+    const time=new Date();
     const Divtime=document.getElementById("time");
     const links=document.getElementById("links")
     const alter=document.getElementById("alter")
     console.log(alter)
+    time.setMinutes(Math.floor(time.getMinutes() / 30 + 1) * 30);
+    time.setSeconds(0);
     setInterval(()=>{
     x=x+1;
+    
     const rtime=new Date().getTime();
     var show=time-rtime;
     var min=Math.floor((show%(1000*60*60)) / (1000 * 60));
-    var second=Math.floor((show%(1000*60))/1000)
+    var second=Math.floor((show%(1000*60))/1000);
     Divtime.innerHTML=min+":"+second;
-    if(x==15*60)
+    if(new Date().getMinutes() % 30 == 0)
     {
         window.location.href = "http://live.gitcommit.show";
     }
 },1000)
-setInterval(()=>{
-    links.innerHTML=`<a href="live.gitcommit.show"> live stream is about to start click here</a>`
-},13*60*1000)
+//  setInterval(()=>{
+//      links.innerHTML=`<a href="live.gitcommit.show"> live stream is about to start click here</a>`
+//  },13*60*1000)
 
 setInterval(()=>{
     alter.innerHTML=`facing issue <br><a href="https://us04web.zoom.us/j/8084372218?pwd=RW1HS2NJQlFEYnNGTUhqbGdvQzRCdz09">click here</a> to try alternative`
