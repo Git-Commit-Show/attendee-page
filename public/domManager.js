@@ -52,3 +52,9 @@ function deactivateHandRaiseBtn(){
         }, 6000);
     })
 }
+
+function updateOnlineUserCount(data){
+    Array.from(document.getElementsByClassName('online-user-count')).forEach(function(elem){
+        elem.innerHTML = data+ " watching right now";
+    })
+}

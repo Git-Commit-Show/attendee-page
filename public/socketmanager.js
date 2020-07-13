@@ -3,6 +3,10 @@ socket.on('connected', function(data) {
     socket.emit('subscribe', 'public');
 });
 
+socket.on('online-user-count', function(data){
+    updateOnlineUserCount(data);
+})
+
 socket.on('message', function(message) {
     updateMessageUI(message);
 })
