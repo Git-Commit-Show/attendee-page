@@ -18,7 +18,6 @@ socket.on('loadAllQuestions', function(data) {
 document.getElementById("iframe-text-form").addEventListener("submit", function(e) {
     e.preventDefault();
     const msg = e.target.elements.message.value;
-    console.log(msg);
 
     // EMIT QUESTION TEXT TO SERVER
     socket.emit("questionmessage", msg);

@@ -180,7 +180,7 @@ body {
         -ms-flex: 0 1 234px;
             flex: 0 1 234px;
     height: 495px;
-    border: 1px solid #EFEFEF;
+    /* border: 1px solid #EFEFEF; */
     margin-right: 117px;
     padding: 5px;
     -webkit-box-align: flex-start;
@@ -354,7 +354,7 @@ body {
 	-webkit-box-align: end;
 	    -ms-flex-align: end;
 	        align-items: flex-end;
-	padding-top: 4%;
+	/* padding-top: 4%; */
 }
 #l-m-text-div1 {
 	display: -webkit-box;

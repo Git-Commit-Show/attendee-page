@@ -55,6 +55,6 @@ function deactivateHandRaiseBtn(){
 
 function updateOnlineUserCount(data){
     Array.from(document.getElementsByClassName('online-user-count')).forEach(function(elem){
-        elem.innerHTML = data+ " watching right now";
+        elem.innerHTML = data;
     })
 }
