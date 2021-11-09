@@ -7,6 +7,8 @@ const redis = require("redis");
 var socket = require("socket.io");
 var cookieParser = require('cookie-parser');
 var session = require('express-session')
+const http=require('http')
+const servers= http.createServer(app)
 
 const REDIS_PASSWORD = process.env.REDIS_PASSWORD;
 const SESSIONS_SECRET = process.env.SESSIONS_SECRET;
@@ -16,7 +18,7 @@ const SERVER_PORT = process.env.SERVER_PORT;
 const CHAT_SERVER = process.env.CHAT_SERVER;
 
 
-const server = app.listen(SERVER_PORT, function() {
+const server = servers.listen(SERVER_PORT, function() {
     console.log(`Server started at port ${SERVER_PORT}`);
 });
 
