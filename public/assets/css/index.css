@@ -82,7 +82,8 @@ body {
 	font-style: normal;
 }
 #nav-ul li a:hover {
-	color: red !important;
+	/* color: red !important; */
+	font-weight: bold;
 }
 .navbar-nav .nav-link {
 	font-family: "Josefin Sans", sans-serif;
