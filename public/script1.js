@@ -1,4 +1,4 @@
-const domain = 'meet.jit.si';
+const domain = 'meet.gitcommit.show';
 const options = {
     roomName: 'welcometoinvid',
     width: 1060,
