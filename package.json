@@ -1,6 +1,6 @@
 {
   "name": "attendee-page-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "[![HitCount](http://hits.dwyl.com/Git-Commit-Show/attendee-page-ui.svg)](http://hits.dwyl.com/Git-Commit-Show/attendee-page-ui)",
   "main": "index.js",
   "scripts": {

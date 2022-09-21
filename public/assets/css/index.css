@@ -82,7 +82,8 @@ body {
 	font-style: normal;
 }
 #nav-ul li a:hover {
-	color: red !important;
+	/* color: red !important; */
+	font-weight: bold;
 }
 .navbar-nav .nav-link {
 	font-family: "Josefin Sans", sans-serif;
@@ -180,7 +181,7 @@ body {
         -ms-flex: 0 1 234px;
             flex: 0 1 234px;
     height: 495px;
-    border: 1px solid #EFEFEF;
+    /* border: 1px solid #EFEFEF; */
     margin-right: 117px;
     padding: 5px;
     -webkit-box-align: flex-start;
@@ -311,7 +312,7 @@ body {
 	height: 18px;
 	cursor: pointer;
 }
-#l-m-text {
+.l-m-text {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -323,7 +324,7 @@ body {
 	    flex-wrap: wrap;
 	padding-left: 5%;
 }
-#l-m-text > h1 {
+.l-m-text > h1 {
 	font-family: "Work Sans", sans-serif;
 	font-style: normal;
 	font-weight: 600;
@@ -332,7 +333,7 @@ body {
 	color: #EFEFEF;
 	padding-top: 25px;
 }
-#l-m-text > hr {
+.l-m-text > hr {
 	height: 0px;
     width: 70%;
     border: 0.5px solid #EFEFEF;
@@ -354,7 +355,7 @@ body {
 	-webkit-box-align: end;
 	    -ms-flex-align: end;
 	        align-items: flex-end;
-	padding-top: 4%;
+	/* padding-top: 4%; */
 }
 #l-m-text-div1 {
 	display: -webkit-box;
@@ -424,8 +425,8 @@ body {
 	color: #EFEFEF;
 }
 .l-m-text-button {
-	width: 240px;
-	height: 43px;
+	min-width: 240px;
+	min-height: 43px;
 	background: #EFEFEF;
 	-webkit-box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.5);
 	        box-shadow: 2px 8px 12px rgba(0, 0, 0, 0.5);
